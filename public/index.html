@@ -7,65 +7,36 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; color: #333; min-height: 100vh; }
-
-    header {
-      background: linear-gradient(135deg, #1a73e8, #0d47a1);
-      color: white; padding: 16px 24px;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
+    header { background: linear-gradient(135deg, #1a73e8, #0d47a1); color: white; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
     header h1 { font-size: 1.4rem; font-weight: 600; }
     .user-info { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; }
     .user-badge { padding: 4px 10px; border-radius: 999px; font-size: 0.78rem; font-weight: 700; }
-    .btn-header {
-      padding: 6px 12px; border-radius: 6px; border: none;
-      background: #e8f0fe; color: #0d47a1; font-size: 0.8rem; font-weight: 600; cursor: pointer;
-    }
+    .btn-header { padding: 6px 12px; border-radius: 6px; border: none; background: #e8f0fe; color: #0d47a1; font-size: 0.8rem; font-weight: 600; cursor: pointer; }
     .btn-header:hover { background: #d2e3fc; }
-
     .container { max-width: 1100px; margin: 32px auto; padding: 0 16px; }
-
     .auth-wrapper { max-width: 420px; margin: 60px auto; padding: 0 16px; }
     .auth-card { background: white; border-radius: 12px; padding: 28px; box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
     .auth-logo { text-align: center; margin-bottom: 20px; }
     .auth-logo span { font-size: 3rem; }
     .auth-logo h2 { color: #1a73e8; font-size: 1.3rem; margin-top: 8px; }
     .auth-tabs { display: flex; margin-bottom: 20px; border-radius: 999px; background: #e8f0fe; padding: 3px; }
-    .auth-tab-btn {
-      flex: 1; border: none; background: transparent; padding: 9px;
-      border-radius: 999px; font-size: 0.9rem; cursor: pointer; font-weight: 600; color: #555;
-    }
+    .auth-tab-btn { flex: 1; border: none; background: transparent; padding: 9px; border-radius: 999px; font-size: 0.9rem; cursor: pointer; font-weight: 600; color: #555; }
     .auth-tab-btn.active { background: white; color: #1a73e8; box-shadow: 0 1px 4px rgba(0,0,0,0.15); }
-
     .tabs { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
-    .tab-btn {
-      padding: 10px 22px; border: none; border-radius: 24px; background: white;
-      color: #555; font-size: 0.92rem; cursor: pointer;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1); font-weight: 500;
-    }
+    .tab-btn { padding: 10px 22px; border: none; border-radius: 24px; background: white; color: #555; font-size: 0.92rem; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.1); font-weight: 500; }
     .tab-btn.active, .tab-btn:hover { background: #1a73e8; color: white; }
     .tab-content { display: none; }
     .tab-content.active { display: block; }
-
     .card { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 1px 6px rgba(0,0,0,0.08); margin-bottom: 20px; }
     .card h2 { font-size: 1.1rem; color: #1a73e8; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid #e8f0fe; }
-
     .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
     label { font-size: 0.85rem; font-weight: 600; color: #555; }
-    input[type="text"], input[type="email"], input[type="password"], select, textarea {
-      padding: 10px 14px; border: 1.5px solid #ddd; border-radius: 8px;
-      font-size: 0.95rem; outline: none; background: #fafafa; width: 100%;
-    }
+    input[type="text"], input[type="email"], input[type="password"], select, textarea { padding: 10px 14px; border: 1.5px solid #ddd; border-radius: 8px; font-size: 0.95rem; outline: none; background: #fafafa; width: 100%; }
     input:focus, select:focus, textarea:focus { border-color: #1a73e8; background: white; }
     textarea { resize: vertical; min-height: 60px; }
-
     .form-row { display: flex; gap: 12px; flex-wrap: wrap; }
     .form-row .form-group { flex: 1; min-width: 160px; }
-
-    .btn {
-      padding: 10px 20px; border: none; border-radius: 8px; font-size: 0.9rem;
-      font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
-    }
+    .btn { padding: 10px 20px; border: none; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
     .btn:disabled { opacity: 0.5; cursor: not-allowed; }
     .btn-primary { background: #1a73e8; color: white; }
     .btn-primary:hover:not(:disabled) { background: #1557b0; }
@@ -76,90 +47,66 @@
     .btn-secondary { background: #f1f3f4; color: #333; }
     .btn-secondary:hover:not(:disabled) { background: #e0e0e0; }
     .btn-full { width: 100%; justify-content: center; }
-
     .days-selector { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0; }
-    .day-btn {
-      padding: 8px 14px; border: 2px solid #ddd; border-radius: 20px;
-      background: white; cursor: pointer; font-size: 0.85rem; font-weight: 600; user-select: none;
-    }
+    .day-btn { padding: 8px 14px; border: 2px solid #ddd; border-radius: 20px; background: white; cursor: pointer; font-size: 0.85rem; font-weight: 600; user-select: none; }
     .day-btn.selected { background: #1a73e8; border-color: #1a73e8; color: white; }
-
+    .categories-selector { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0; }
+    .cat-btn { padding: 8px 14px; border: 2px solid #ddd; border-radius: 20px; background: white; cursor: pointer; font-size: 0.85rem; font-weight: 600; user-select: none; }
+    .cat-btn.selected { background: #34a853; border-color: #34a853; color: white; }
     .group-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
     .group-card { background: #f8f9ff; border: 1.5px solid #e0e7ff; border-radius: 10px; padding: 16px; }
     .group-card:hover { border-color: #1a73e8; box-shadow: 0 2px 8px rgba(26,115,232,0.15); }
     .group-card h3 { font-size: 1rem; margin-bottom: 6px; color: #1a73e8; }
     .group-card p { font-size: 0.82rem; color: #666; margin-bottom: 4px; }
     .group-actions { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
-
     .badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 700; }
-    .badge-blue { background: #e8f0fe; color: #1a73e8; }
     .badge-green { background: #e6f4ea; color: #34a853; }
-    .badge-orange { background: #fff3e0; color: #f57c00; }
-
-    .people-list { display: flex; flex-direction: column; gap: 8px; max-height: 420px; overflow-y: auto; }
-    .person-item {
-      display: flex; align-items: center; background: #f8f9ff;
-      border: 1px solid #e0e7ff; border-radius: 8px; padding: 10px 14px; gap: 10px;
-    }
+    .people-list { display: flex; flex-direction: column; gap: 8px; max-height: 500px; overflow-y: auto; }
+    .person-item { display: flex; align-items: center; background: #f8f9ff; border: 1px solid #e0e7ff; border-radius: 8px; padding: 10px 14px; gap: 10px; }
     .person-item.dragging { opacity: 0.4; }
     .person-item.drag-over { border: 2px dashed #1a73e8; }
     .drag-handle { cursor: grab; color: #aaa; font-size: 1.1rem; }
-    .person-order {
-      background: #1a73e8; color: white; border-radius: 50%;
-      width: 26px; height: 26px; display: flex; align-items: center;
-      justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
-    }
+    .person-order { background: #1a73e8; color: white; border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
     .person-info { flex: 1; }
     .person-info .person-name { font-weight: 600; font-size: 0.92rem; }
     .person-info .person-meta { font-size: 0.75rem; color: #666; margin-top: 2px; }
     .person-actions { display: flex; gap: 6px; }
-
     .stats-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
     .stat-box { background: #f0f7ff; border-radius: 10px; padding: 14px 20px; flex: 1; min-width: 100px; text-align: center; }
     .stat-num { font-size: 1.8rem; font-weight: 700; color: #1a73e8; }
     .stat-label { font-size: 0.75rem; color: #666; margin-top: 2px; }
-
     .info-box { background: #e8f0fe; border-left: 4px solid #1a73e8; border-radius: 6px; padding: 10px 14px; font-size: 0.85rem; margin-bottom: 14px; }
     .small-hint { font-size: 0.78rem; color: #888; margin-top: 4px; }
-
     .month-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
     .month-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,0.08); }
     .month-header { background: linear-gradient(135deg, #1a73e8, #0d47a1); color: white; padding: 12px 16px; font-weight: 700; }
     .month-table { width: 100%; border-collapse: collapse; }
     .month-table th { background: #e8f0fe; color: #1a73e8; font-size: 0.78rem; padding: 8px 4px; text-align: center; font-weight: 700; }
-    .month-table td { padding: 6px 4px; text-align: center; font-size: 0.8rem; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
-    .day-number { font-size: 0.78rem; color: #888; display: block; }
-    .day-person { background: #1a73e8; color: white; border-radius: 4px; padding: 2px 5px; font-size: 0.7rem; margin-top: 2px; display: block; cursor: pointer; word-break: break-word; }
+    .month-table td { padding: 6px 4px; text-align: center; font-size: 0.8rem; border-bottom: 1px solid #f0f0f0; vertical-align: middle; }
+    .day-number { font-size: 0.82rem; font-weight: 600; color: #333; }
+    .day-dow { font-size: 0.75rem; color: #888; }
+    .day-person { background: #1a73e8; color: white; border-radius: 4px; padding: 2px 6px; font-size: 0.72rem; display: inline-block; cursor: pointer; word-break: break-word; }
     .day-person:hover { background: #0d47a1; }
-    .day-off { background: #f8f9fa; }
-    .today-cell { background: #fff8e1; }
-
+    .day-empty { color: #ccc; font-size: 0.75rem; }
+    .today-row { background: #fff8e1 !important; }
     .empty-state { text-align: center; padding: 40px 20px; color: #888; }
     .empty-state .icon { font-size: 3rem; margin-bottom: 12px; }
-
     .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center; padding: 16px; }
     .modal-overlay.open { display: flex; }
-    .modal { background: white; border-radius: 14px; padding: 24px; width: 100%; max-width: 480px; box-shadow: 0 8px 32px rgba(0,0,0,0.2); max-height: 90vh; overflow-y: auto; }
+    .modal { background: white; border-radius: 14px; padding: 24px; width: 100%; max-width: 500px; box-shadow: 0 8px 32px rgba(0,0,0,0.2); max-height: 90vh; overflow-y: auto; }
     .modal h3 { margin-bottom: 14px; color: #1a73e8; font-size: 1.1rem; }
     .modal-actions { display: flex; gap: 10px; margin-top: 20px; justify-content: flex-end; flex-wrap: wrap; }
-
     .toast { position: fixed; bottom: 24px; right: 24px; background: #323232; color: white; padding: 12px 20px; border-radius: 8px; font-size: 0.9rem; z-index: 9999; opacity: 0; transform: translateY(20px); transition: all 0.3s; pointer-events: none; max-width: 320px; }
     .toast.show { opacity: 1; transform: translateY(0); }
     .toast.success { background: #34a853; }
     .toast.error { background: #ea4335; }
-
-    @media (max-width: 700px) {
-      header { flex-direction: column; align-items: flex-start; }
-      .form-row { flex-direction: column; }
-      .month-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 700px) { header { flex-direction: column; align-items: flex-start; } .form-row { flex-direction: column; } .month-grid { grid-template-columns: 1fr; } }
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
   </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header id="appHeader" style="display:none">
   <div style="display:flex;align-items:center;gap:10px">
     <span style="font-size:1.5rem">🔄</span>
@@ -175,43 +122,22 @@
   </div>
 </header>
 
-<!-- AUTH -->
 <div id="authView" class="auth-wrapper">
   <div class="auth-card">
-    <div class="auth-logo">
-      <span>🔄</span>
-      <h2>Sistema de Rodízio</h2>
-    </div>
+    <div class="auth-logo"><span>🔄</span><h2>Sistema de Rodízio</h2></div>
     <div class="auth-tabs">
       <button class="auth-tab-btn active" onclick="switchAuthTab('login')">Entrar</button>
       <button class="auth-tab-btn" onclick="switchAuthTab('register')">Cadastrar</button>
     </div>
-
     <div id="authLogin">
-      <div class="form-group">
-        <label>E-mail</label>
-        <input type="email" id="loginEmail" placeholder="seu@email.com">
-      </div>
-      <div class="form-group">
-        <label>Senha</label>
-        <input type="password" id="loginPassword" placeholder="Sua senha" onkeydown="if(event.key==='Enter') login()">
-      </div>
+      <div class="form-group"><label>E-mail</label><input type="email" id="loginEmail" placeholder="seu@email.com"></div>
+      <div class="form-group"><label>Senha</label><input type="password" id="loginPassword" placeholder="Sua senha" onkeydown="if(event.key==='Enter') login()"></div>
       <button class="btn btn-primary btn-full" onclick="login()" id="btnLogin">Entrar</button>
     </div>
-
     <div id="authRegister" style="display:none">
-      <div class="form-group">
-        <label>Nome completo</label>
-        <input type="text" id="regName" placeholder="Seu nome">
-      </div>
-      <div class="form-group">
-        <label>E-mail</label>
-        <input type="email" id="regEmail" placeholder="seu@email.com">
-      </div>
-      <div class="form-group">
-        <label>Senha</label>
-        <input type="password" id="regPassword" placeholder="Crie uma senha">
-      </div>
+      <div class="form-group"><label>Nome completo</label><input type="text" id="regName" placeholder="Seu nome"></div>
+      <div class="form-group"><label>E-mail</label><input type="email" id="regEmail" placeholder="seu@email.com"></div>
+      <div class="form-group"><label>Senha</label><input type="password" id="regPassword" placeholder="Crie uma senha"></div>
       <div class="form-group">
         <label>Tipo de acesso</label>
         <select id="regRole">
@@ -224,23 +150,22 @@
   </div>
 </div>
 
-<!-- APP -->
 <div id="appView" style="display:none">
   <div class="container">
     <div class="tabs">
-      <button class="tab-btn active" onclick="showTab('grupos',event)">📁 Grupos</button>
-      <button class="tab-btn" onclick="showTab('pessoas',event)">👥 Pessoas</button>
-      <button class="tab-btn" onclick="showTab('calendario',event)">📅 Calendário</button>
+      <button class="tab-btn active" onclick="showTab('grupos',event)">⛪ Casas de Oração</button>
+      <button class="tab-btn" onclick="showTab('pessoas',event)">👥 Organistas</button>
+      <button class="tab-btn" onclick="showTab('calendario',event)">📅 Rodízio</button>
     </div>
 
-    <!-- GRUPOS -->
+    <!-- CASAS DE ORAÇÃO -->
     <div id="tab-grupos" class="tab-content active">
       <div class="card" id="groupCreateCard">
-        <h2>Criar Novo Grupo</h2>
+        <h2>Cadastrar Casa de Oração</h2>
         <p class="small-hint" id="groupCreateHint"></p>
         <div class="form-group" style="margin-top:10px">
-          <label>Nome do Grupo</label>
-          <input type="text" id="groupName" placeholder="Ex: Equipe de Plantão">
+          <label>Nome da Casa de Oração</label>
+          <input type="text" id="groupName" placeholder="Ex: Casa de Oração Central">
         </div>
         <div class="form-group">
           <label>Dias da Semana</label>
@@ -254,30 +179,30 @@
             <div class="day-btn" data-day="6" onclick="toggleDay(this)">Sáb</div>
           </div>
         </div>
-        <button class="btn btn-primary" onclick="createGroup()">➕ Criar Grupo</button>
+        <button class="btn btn-primary" onclick="createGroup()">➕ Cadastrar Casa de Oração</button>
       </div>
       <div class="card">
-        <h2>Grupos Cadastrados</h2>
+        <h2>Casas de Oração Cadastradas</h2>
         <div id="groupList" class="group-list">
-          <div class="empty-state"><div class="icon">📁</div><p>Carregando...</p></div>
+          <div class="empty-state"><div class="icon">⛪</div><p>Carregando...</p></div>
         </div>
       </div>
     </div>
 
-    <!-- PESSOAS -->
+    <!-- ORGANISTAS -->
     <div id="tab-pessoas" class="tab-content">
       <div class="card">
-        <h2>Selecionar Grupo</h2>
+        <h2>Selecionar Casa de Oração</h2>
         <div class="form-group">
-          <label>Grupo</label>
+          <label>Casa de Oração</label>
           <select id="selectedGroupPessoas" onchange="loadPeopleTab()">
-            <option value="">-- Selecione um grupo --</option>
+            <option value="">-- Selecione uma Casa de Oração --</option>
           </select>
         </div>
       </div>
       <div id="peopleSection" style="display:none">
         <div class="card">
-          <h2>Adicionar Pessoa</h2>
+          <h2>Adicionar Organista</h2>
           <div class="form-row">
             <div class="form-group">
               <label>Nome completo *</label>
@@ -298,42 +223,47 @@
               <input type="text" id="personPhone" placeholder="(xx) xxxxx-xxxx">
             </div>
           </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Endereço</label>
-              <textarea id="personAddress" placeholder="Rua, número, bairro, cidade..."></textarea>
-            </div>
-            <div class="form-group">
-              <label>Função</label>
-              <select id="personRole">
-                <option value="Examinadora">Examinadora</option>
-                <option value="Instrutora">Instrutora</option>
-                <option value="Organista">Organista</option>
-              </select>
-            </div>
+          <div class="form-group">
+            <label>Endereço</label>
+            <textarea id="personAddress" placeholder="Rua, número, bairro, cidade..."></textarea>
           </div>
-          <button class="btn btn-primary" onclick="addPerson()">➕ Adicionar</button>
-          <div class="info-box" style="margin-top:12px">
-            💡 Arraste as pessoas para reordenar a fila do rodízio.
+          <div class="form-group">
+            <label>Participa dos Rodízios</label>
+            <div class="categories-selector" id="categoriesSelector">
+              <div class="cat-btn selected" data-cat="meia_hora" onclick="toggleCat(this)">M. Hora</div>
+              <div class="cat-btn selected" data-cat="culto" onclick="toggleCat(this)">C. Oficial</div>
+              <div class="cat-btn selected" data-cat="jovens" onclick="toggleCat(this)">C. Jovens</div>
+            </div>
+            <span class="small-hint">Selecione em quais rodízios esta organista participa</span>
           </div>
+          <button class="btn btn-primary" onclick="addPerson()">➕ Adicionar Organista</button>
+          <div class="info-box" style="margin-top:12px">💡 Arraste as organistas para reordenar a fila do rodízio.</div>
         </div>
         <div class="card">
-          <h2 id="peopleTitle">Pessoas no Grupo</h2>
+          <h2 id="peopleTitle">Organistas na Casa de Oração</h2>
           <div class="stats-row" id="peopleStats"></div>
           <div class="people-list" id="peopleList"></div>
         </div>
       </div>
     </div>
 
-    <!-- CALENDÁRIO -->
+    <!-- RODÍZIO -->
     <div id="tab-calendario" class="tab-content">
       <div class="card">
         <h2>Gerar Rodízio Semestral</h2>
         <div class="form-row">
           <div class="form-group">
-            <label>Grupo</label>
+            <label>Casa de Oração</label>
             <select id="selectedGroupCalendar" onchange="onCalendarGroupChange()">
-              <option value="">-- Selecione um grupo --</option>
+              <option value="">-- Selecione uma Casa de Oração --</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tipo de Rodízio</label>
+            <select id="calendarCategory" onchange="onCalendarGroupChange()">
+              <option value="meia_hora">M. Hora</option>
+              <option value="culto">C. Oficial</option>
+              <option value="jovens">C. Jovens</option>
             </select>
           </div>
           <div class="form-group">
@@ -348,9 +278,10 @@
             </select>
           </div>
         </div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
           <button class="btn btn-success" onclick="generateSchedule()">🔄 Gerar Rodízio</button>
-          <button class="btn btn-secondary" onclick="exportCSV()">📥 Exportar CSV</button>
+          <button class="btn btn-secondary" onclick="exportXLSX()">📊 Exportar Excel</button>
+          <button class="btn btn-secondary" onclick="exportPDF()">📄 Exportar PDF</button>
           <button class="btn btn-secondary" onclick="window.print()">🖨️ Imprimir</button>
         </div>
       </div>
@@ -359,27 +290,25 @@
   </div>
 </div>
 
-<!-- MODAL EDITAR PESSOA -->
+<!-- MODAL EDITAR ORGANISTA -->
 <div class="modal-overlay" id="modalEditPerson">
   <div class="modal">
-    <h3>✏️ Editar Pessoa</h3>
+    <h3>✏️ Editar Organista</h3>
     <div class="form-group"><label>Nome completo</label><input type="text" id="editPersonName"></div>
     <div class="form-row">
       <div class="form-group"><label>CPF</label><input type="text" id="editPersonCPF"></div>
-      <div class="form-group">
-        <label>Função</label>
-        <select id="editPersonRole">
-          <option value="Examinadora">Examinadora</option>
-          <option value="Instrutora">Instrutora</option>
-          <option value="Organista">Organista</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group"><label>E-mail</label><input type="email" id="editPersonEmail"></div>
       <div class="form-group"><label>Telefone</label><input type="text" id="editPersonPhone"></div>
     </div>
+    <div class="form-group"><label>E-mail</label><input type="email" id="editPersonEmail"></div>
     <div class="form-group"><label>Endereço</label><textarea id="editPersonAddress"></textarea></div>
+    <div class="form-group">
+      <label>Participa dos Rodízios</label>
+      <div class="categories-selector" id="editCategoriesSelector">
+        <div class="cat-btn" data-cat="meia_hora" onclick="toggleCat(this)">M. Hora</div>
+        <div class="cat-btn" data-cat="culto" onclick="toggleCat(this)">C. Oficial</div>
+        <div class="cat-btn" data-cat="jovens" onclick="toggleCat(this)">C. Jovens</div>
+      </div>
+    </div>
     <div class="modal-actions">
       <button class="btn btn-secondary" onclick="closeModal('modalEditPerson')">Cancelar</button>
       <button class="btn btn-primary" onclick="saveEditPerson()">Salvar</button>
@@ -387,11 +316,11 @@
   </div>
 </div>
 
-<!-- MODAL EDITAR GRUPO -->
+<!-- MODAL EDITAR CASA DE ORAÇÃO -->
 <div class="modal-overlay" id="modalEditGroup">
   <div class="modal">
-    <h3>✏️ Editar Grupo</h3>
-    <div class="form-group"><label>Nome do Grupo</label><input type="text" id="editGroupName"></div>
+    <h3>✏️ Editar Casa de Oração</h3>
+    <div class="form-group"><label>Nome da Casa de Oração</label><input type="text" id="editGroupName"></div>
     <div class="form-group">
       <label>Dias da Semana</label>
       <div class="days-selector" id="editDaysSelector">
@@ -429,7 +358,7 @@
     <h3>📅 Editar Escala do Dia</h3>
     <p id="editDayLabel" style="color:#555;font-size:0.88rem;margin-bottom:14px"></p>
     <div class="form-group">
-      <label>Pessoa escalada</label>
+      <label>Organista escalada</label>
       <select id="editDaySelect"></select>
     </div>
     <div class="modal-actions">
@@ -442,10 +371,7 @@
 <div class="toast" id="toast"></div>
 
 <script>
-  // ===== CONFIG =====
   const API_BASE = '';
-
-  // ===== ESTADO =====
   let currentUser = null;
   let token = localStorage.getItem('rodizio_token') || null;
   let groups = [];
@@ -455,13 +381,11 @@
   let editingScheduleInfo = {};
   let currentSchedule = {};
   let dragSrcIndex = null;
-  let dragGid = null;
 
   const DAY_NAMES = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
-  const MONTH_NAMES = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho',
-                       'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+  const MONTH_NAMES = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+  const CAT_LABELS = { meia_hora: 'M. Hora', culto: 'C. Oficial', jovens: 'C. Jovens' };
 
-  // ===== API =====
   async function apiFetch(method, endpoint, body) {
     const opts = { method, headers: { 'Content-Type': 'application/json' } };
     if (token) opts.headers['Authorization'] = 'Bearer ' + token;
@@ -472,13 +396,22 @@
     return data;
   }
 
-  // ===== LOADING =====
   function setLoading(btnId, loading) {
     const btn = document.getElementById(btnId);
     if (!btn) return;
     btn.disabled = loading;
     btn.textContent = loading ? 'Aguarde...' : (btnId === 'btnLogin' ? 'Entrar' : 'Cadastrar');
   }
+
+  function showToast(msg, type) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = 'toast show' + (type ? ' ' + type : '');
+    setTimeout(() => { t.className = 'toast'; }, 3000);
+  }
+
+  function openModal(id) { document.getElementById(id).classList.add('open'); }
+  function closeModal(id) { document.getElementById(id).classList.remove('open'); }
 
   // ===== AUTH =====
   function switchAuthTab(tab) {
@@ -496,15 +429,11 @@
     setLoading('btnLogin', true);
     try {
       const data = await apiFetch('POST', '/api/auth/login', { email, password });
-      token = data.token;
-      currentUser = data.user;
+      token = data.token; currentUser = data.user;
       localStorage.setItem('rodizio_token', token);
       enterApp();
-    } catch(e) {
-      showToast(e.message, 'error');
-    } finally {
-      setLoading('btnLogin', false);
-    }
+    } catch(e) { showToast(e.message, 'error'); }
+    finally { setLoading('btnLogin', false); }
   }
 
   async function register() {
@@ -516,21 +445,16 @@
     setLoading('btnRegister', true);
     try {
       const data = await apiFetch('POST', '/api/auth/register', { name, email, password, role });
-      token = data.token;
-      currentUser = data.user;
+      token = data.token; currentUser = data.user;
       localStorage.setItem('rodizio_token', token);
       showToast('Cadastro realizado!', 'success');
       enterApp();
-    } catch(e) {
-      showToast(e.message, 'error');
-    } finally {
-      setLoading('btnRegister', false);
-    }
+    } catch(e) { showToast(e.message, 'error'); }
+    finally { setLoading('btnRegister', false); }
   }
 
   function logout() {
-    token = null;
-    currentUser = null;
+    token = null; currentUser = null;
     localStorage.removeItem('rodizio_token');
     document.getElementById('appView').style.display = 'none';
     document.getElementById('appHeader').style.display = 'none';
@@ -544,20 +468,17 @@
     document.getElementById('appHeader').style.display = 'flex';
     document.getElementById('headerUserName').textContent = currentUser.name;
     document.getElementById('headerUserEmail').textContent = currentUser.email;
-
     const badge = document.getElementById('headerUserRole');
     badge.textContent = currentUser.role === 'admin' ? 'Administrador' : 'Usuário';
     badge.style.background = currentUser.role === 'admin' ? '#e6f4ea' : '#e8f0fe';
     badge.style.color = currentUser.role === 'admin' ? '#0f9d58' : '#1a73e8';
-
     const isAdmin = currentUser.role === 'admin';
     const card = document.getElementById('groupCreateCard');
     card.style.opacity = isAdmin ? '1' : '0.6';
     card.style.pointerEvents = isAdmin ? 'auto' : 'none';
     document.getElementById('groupCreateHint').textContent = isAdmin
-      ? '✅ Você é administrador e pode criar grupos.'
-      : '🔒 Somente administradores podem criar grupos.';
-
+      ? '✅ Você é administrador e pode cadastrar Casas de Oração.'
+      : '🔒 Somente administradores podem cadastrar Casas de Oração.';
     loadGroups();
     populateYearSelect();
   }
@@ -573,12 +494,15 @@
     if (tab === 'calendario') { populateGroupSelect('selectedGroupCalendar'); populateYearSelect(); }
   }
 
-  // ===== DIAS =====
   function toggleDay(el) { el.classList.toggle('selected'); }
   function toggleEditDay(el) { el.classList.toggle('selected'); }
+  function toggleCat(el) { el.classList.toggle('selected'); }
+
   function getSelectedDays(id) {
-    return Array.from(document.querySelectorAll('#' + id + ' .day-btn.selected'))
-                .map(b => parseInt(b.dataset.day));
+    return Array.from(document.querySelectorAll('#' + id + ' .day-btn.selected')).map(b => parseInt(b.dataset.day));
+  }
+  function getSelectedCats(id) {
+    return Array.from(document.querySelectorAll('#' + id + ' .cat-btn.selected')).map(b => b.dataset.cat);
   }
 
   // ===== GRUPOS =====
@@ -588,32 +512,28 @@
       renderGroups();
       populateGroupSelect('selectedGroupPessoas');
       populateGroupSelect('selectedGroupCalendar');
-    } catch(e) {
-      showToast('Erro ao carregar grupos: ' + e.message, 'error');
-    }
+    } catch(e) { showToast('Erro ao carregar Casas de Oração.', 'error'); }
   }
 
   function renderGroups() {
     const container = document.getElementById('groupList');
     if (!groups.length) {
-      container.innerHTML = '<div class="empty-state"><div class="icon">📁</div><p>Nenhum grupo cadastrado.</p></div>';
+      container.innerHTML = '<div class="empty-state"><div class="icon">⛪</div><p>Nenhuma Casa de Oração cadastrada.</p></div>';
       return;
     }
     container.innerHTML = '';
     const isAdmin = currentUser && currentUser.role === 'admin';
     groups.forEach(g => {
-      const daysLabel = [...g.days].sort((a,b)=>a-b).map(d => DAY_NAMES[d]).join(', ');
+      const daysLabel = [...g.days].sort((a,b) => a-b).map(d => DAY_NAMES[d]).join(', ');
       const div = document.createElement('div');
       div.className = 'group-card';
       div.innerHTML =
-        '<h3>📁 ' + g.name + '</h3>' +
+        '<h3>⛪ ' + g.name + '</h3>' +
         '<p>🗓️ Dias: <strong>' + daysLabel + '</strong></p>' +
-        '<p>👥 Criado por: <strong>' + (g.owner ? g.owner.name : '—') + '</strong></p>' +
+        '<p>👤 Criado por: <strong>' + (g.owner ? g.owner.name : '—') + '</strong></p>' +
         '<div class="group-actions">' +
-          '<button class="btn btn-secondary" style="font-size:0.8rem;padding:6px 10px" ' +
-            'onclick="openEditGroup(\'' + g.id + '\')" ' + (!isAdmin ? 'disabled' : '') + '>✏️ Editar</button>' +
-          '<button class="btn btn-danger" ' +
-            'onclick="confirmDeleteGroup(\'' + g.id + '\')" ' + (!isAdmin ? 'disabled' : '') + '>🗑️ Excluir</button>' +
+          '<button class="btn btn-secondary" style="font-size:0.8rem;padding:6px 10px" onclick="openEditGroup(\'' + g.id + '\')" ' + (!isAdmin ? 'disabled' : '') + '>✏️ Editar</button>' +
+          '<button class="btn btn-danger" onclick="confirmDeleteGroup(\'' + g.id + '\')" ' + (!isAdmin ? 'disabled' : '') + '>🗑️ Excluir</button>' +
         '</div>';
       container.appendChild(div);
     });
@@ -622,14 +542,14 @@
   async function createGroup() {
     const name = document.getElementById('groupName').value.trim();
     const days = getSelectedDays('daysSelector');
-    if (!name) { showToast('Informe o nome do grupo.', 'error'); return; }
+    if (!name) { showToast('Informe o nome da Casa de Oração.', 'error'); return; }
     if (!days.length) { showToast('Selecione ao menos um dia.', 'error'); return; }
     try {
       await apiFetch('POST', '/api/groups', { name, days });
       document.getElementById('groupName').value = '';
       document.querySelectorAll('#daysSelector .day-btn').forEach(b => b.classList.remove('selected'));
       await loadGroups();
-      showToast('Grupo criado!', 'success');
+      showToast('Casa de Oração cadastrada!', 'success');
     } catch(e) { showToast(e.message, 'error'); }
   }
 
@@ -653,14 +573,14 @@
       await apiFetch('PUT', '/api/groups/' + editingGroupId, { name, days });
       await loadGroups();
       closeModal('modalEditGroup');
-      showToast('Grupo atualizado!', 'success');
+      showToast('Casa de Oração atualizada!', 'success');
     } catch(e) { showToast(e.message, 'error'); }
   }
 
   function confirmDeleteGroup(id) {
     const g = groups.find(x => x.id === id);
-    document.getElementById('confirmTitle').textContent = 'Excluir Grupo';
-    document.getElementById('confirmMsg').textContent = 'Deseja excluir o grupo "' + g.name + '"?';
+    document.getElementById('confirmTitle').textContent = 'Excluir Casa de Oração';
+    document.getElementById('confirmMsg').textContent = 'Deseja excluir "' + g.name + '"? Todos os dados serão perdidos.';
     document.getElementById('confirmBtn').onclick = () => deleteGroup(id);
     openModal('modalConfirm');
   }
@@ -670,7 +590,7 @@
       await apiFetch('DELETE', '/api/groups/' + id);
       await loadGroups();
       closeModal('modalConfirm');
-      showToast('Grupo excluído.', 'success');
+      showToast('Casa de Oração excluída.', 'success');
     } catch(e) { showToast(e.message, 'error'); }
   }
 
@@ -678,7 +598,7 @@
     const sel = document.getElementById(selectId);
     if (!sel) return;
     const cur = sel.value;
-    sel.innerHTML = '<option value="">-- Selecione um grupo --</option>';
+    sel.innerHTML = '<option value="">-- Selecione uma Casa de Oração --</option>';
     groups.forEach(g => {
       const opt = document.createElement('option');
       opt.value = g.id; opt.textContent = g.name;
@@ -695,7 +615,7 @@
     try {
       currentPeople = await apiFetch('GET', '/api/groups/' + gid + '/people');
       renderPeople(gid);
-    } catch(e) { showToast('Erro ao carregar pessoas.', 'error'); }
+    } catch(e) { showToast('Erro ao carregar organistas.', 'error'); }
   }
 
   async function addPerson() {
@@ -705,41 +625,40 @@
     const email = document.getElementById('personEmail').value.trim();
     const phone = document.getElementById('personPhone').value.trim();
     const address = document.getElementById('personAddress').value.trim();
-    const role = document.getElementById('personRole').value;
-    if (!gid) { showToast('Selecione um grupo.', 'error'); return; }
+    const categories = getSelectedCats('categoriesSelector');
+    if (!gid) { showToast('Selecione uma Casa de Oração.', 'error'); return; }
     if (!name) { showToast('Informe o nome completo.', 'error'); return; }
+    if (!categories.length) { showToast('Selecione ao menos um tipo de rodízio.', 'error'); return; }
     try {
-      await apiFetch('POST', '/api/groups/' + gid + '/people', { name, cpf, email, phone, address, role });
-      ['personName','personCPF','personEmail','personPhone','personAddress'].forEach(id => {
-        document.getElementById(id).value = '';
-      });
+      await apiFetch('POST', '/api/groups/' + gid + '/people', { name, cpf, email, phone, address, role: 'Organista', categories });
+      ['personName','personCPF','personEmail','personPhone','personAddress'].forEach(id => { document.getElementById(id).value = ''; });
+      document.querySelectorAll('#categoriesSelector .cat-btn').forEach(b => b.classList.add('selected'));
       currentPeople = await apiFetch('GET', '/api/groups/' + gid + '/people');
       renderPeople(gid);
-      showToast(name + ' adicionado(a)!', 'success');
+      showToast('Organista ' + name + ' adicionada!', 'success');
     } catch(e) { showToast(e.message, 'error'); }
   }
 
   function renderPeople(gid) {
     const g = groups.find(x => x.id === gid);
-    document.getElementById('peopleTitle').textContent = 'Pessoas — ' + (g ? g.name : '') + ' (' + currentPeople.length + ')';
-
-    const counts = { Examinadora: 0, Instrutora: 0, Organista: 0 };
-    currentPeople.forEach(p => { if (counts[p.role] !== undefined) counts[p.role]++; });
-
+    document.getElementById('peopleTitle').textContent = 'Organistas — ' + (g ? g.name : '') + ' (' + currentPeople.length + ')';
+    const total = currentPeople.length;
+    const meia = currentPeople.filter(p => (p.categories||[]).includes('meia_hora')).length;
+    const culto = currentPeople.filter(p => (p.categories||[]).includes('culto')).length;
+    const jovens = currentPeople.filter(p => (p.categories||[]).includes('jovens')).length;
     document.getElementById('peopleStats').innerHTML =
-      '<div class="stat-box"><div class="stat-num">' + currentPeople.length + '</div><div class="stat-label">Total</div></div>' +
-      '<div class="stat-box"><div class="stat-num">' + counts.Examinadora + '</div><div class="stat-label">Examinadoras</div></div>' +
-      '<div class="stat-box"><div class="stat-num">' + counts.Instrutora + '</div><div class="stat-label">Instrutoras</div></div>' +
-      '<div class="stat-box"><div class="stat-num">' + counts.Organista + '</div><div class="stat-label">Organistas</div></div>';
-
+      '<div class="stat-box"><div class="stat-num">' + total + '</div><div class="stat-label">Total</div></div>' +
+      '<div class="stat-box"><div class="stat-num">' + meia + '</div><div class="stat-label">M. Hora</div></div>' +
+      '<div class="stat-box"><div class="stat-num">' + culto + '</div><div class="stat-label">C. Oficial</div></div>' +
+      '<div class="stat-box"><div class="stat-num">' + jovens + '</div><div class="stat-label">C. Jovens</div></div>';
     const list = document.getElementById('peopleList');
     if (!currentPeople.length) {
-      list.innerHTML = '<div class="empty-state"><div class="icon">👥</div><p>Nenhuma pessoa cadastrada.</p></div>';
+      list.innerHTML = '<div class="empty-state"><div class="icon">👥</div><p>Nenhuma organista cadastrada.</p></div>';
       return;
     }
     list.innerHTML = '';
     currentPeople.forEach((p, i) => {
-      const badgeClass = p.role === 'Examinadora' ? 'badge-blue' : p.role === 'Instrutora' ? 'badge-green' : 'badge-orange';
+      const cats = (p.categories || []).map(c => '<span class="badge badge-green" style="margin-right:3px">' + (CAT_LABELS[c]||c) + '</span>').join('');
       const item = document.createElement('div');
       item.className = 'person-item';
       item.draggable = true;
@@ -751,7 +670,7 @@
         '<div class="person-info">' +
           '<div class="person-name">' + p.name + '</div>' +
           '<div class="person-meta">' + (p.cpf ? 'CPF: ' + p.cpf + ' · ' : '') + (p.phone || '') + '</div>' +
-          '<div style="margin-top:4px"><span class="badge ' + badgeClass + '">' + p.role + '</span></div>' +
+          '<div style="margin-top:5px">' + (cats || '<span class="badge" style="background:#eee;color:#999">Sem rodízio</span>') + '</div>' +
         '</div>' +
         '<div class="person-actions">' +
           '<button class="btn btn-secondary" style="font-size:0.78rem;padding:5px 10px" onclick="openEditPerson(\'' + gid + '\',\'' + p.id + '\')">✏️</button>' +
@@ -765,20 +684,16 @@
     });
   }
 
-  // ===== DRAG & DROP =====
   function onDragStart(e) {
     dragSrcIndex = parseInt(this.dataset.index);
-    dragGid = document.getElementById('selectedGroupPessoas').value;
     this.classList.add('dragging');
     e.dataTransfer.effectAllowed = 'move';
   }
-
   function onDragOver(e) {
     e.preventDefault();
     document.querySelectorAll('.person-item').forEach(i => i.classList.remove('drag-over'));
     this.classList.add('drag-over');
   }
-
   async function onDrop(e, gid) {
     e.preventDefault();
     const targetIndex = parseInt(this.dataset.index);
@@ -790,7 +705,6 @@
       await apiFetch('PUT', '/api/groups/' + gid + '/people/reorder', { order: currentPeople.map(p => p.id) });
     } catch(e) { showToast('Erro ao salvar ordem.', 'error'); }
   }
-
   function onDragEnd() {
     document.querySelectorAll('.person-item').forEach(i => i.classList.remove('dragging','drag-over'));
   }
@@ -804,7 +718,10 @@
     document.getElementById('editPersonEmail').value = p.email || '';
     document.getElementById('editPersonPhone').value = p.phone || '';
     document.getElementById('editPersonAddress').value = p.address || '';
-    document.getElementById('editPersonRole').value = p.role || 'Examinadora';
+    const cats = p.categories || [];
+    document.querySelectorAll('#editCategoriesSelector .cat-btn').forEach(b => {
+      b.classList.toggle('selected', cats.includes(b.dataset.cat));
+    });
     openModal('modalEditPerson');
   }
 
@@ -815,21 +732,21 @@
     const email = document.getElementById('editPersonEmail').value.trim();
     const phone = document.getElementById('editPersonPhone').value.trim();
     const address = document.getElementById('editPersonAddress').value.trim();
-    const role = document.getElementById('editPersonRole').value;
+    const categories = getSelectedCats('editCategoriesSelector');
     if (!name) { showToast('Informe o nome.', 'error'); return; }
     try {
-      await apiFetch('PUT', '/api/groups/' + groupId + '/people/' + personId, { name, cpf, email, phone, address, role });
+      await apiFetch('PUT', '/api/groups/' + groupId + '/people/' + personId, { name, cpf, email, phone, address, categories });
       currentPeople = await apiFetch('GET', '/api/groups/' + groupId + '/people');
       renderPeople(groupId);
       closeModal('modalEditPerson');
-      showToast('Pessoa atualizada!', 'success');
+      showToast('Organista atualizada!', 'success');
     } catch(e) { showToast(e.message, 'error'); }
   }
 
   function confirmDeletePerson(gid, pid) {
     const p = currentPeople.find(x => x.id === pid);
-    document.getElementById('confirmTitle').textContent = 'Remover Pessoa';
-    document.getElementById('confirmMsg').textContent = 'Deseja remover "' + p.name + '" do grupo?';
+    document.getElementById('confirmTitle').textContent = 'Remover Organista';
+    document.getElementById('confirmMsg').textContent = 'Deseja remover "' + p.name + '" desta Casa de Oração?';
     document.getElementById('confirmBtn').onclick = () => deletePerson(gid, pid);
     openModal('modalConfirm');
   }
@@ -840,7 +757,7 @@
       currentPeople = await apiFetch('GET', '/api/groups/' + gid + '/people');
       renderPeople(gid);
       closeModal('modalConfirm');
-      showToast('Pessoa removida.', 'success');
+      showToast('Organista removida.', 'success');
     } catch(e) { showToast(e.message, 'error'); }
   }
 
@@ -862,43 +779,38 @@
     const gid = document.getElementById('selectedGroupCalendar').value;
     const year = parseInt(document.getElementById('calendarYear').value);
     const sem = parseInt(document.getElementById('calendarSemester').value);
+    const category = document.getElementById('calendarCategory').value;
     if (!gid || !year) { document.getElementById('calendarSection').innerHTML = ''; return; }
     try {
-      currentSchedule = await apiFetch('GET', '/api/schedules/' + gid + '/' + year + '/' + sem);
+      currentSchedule = await apiFetch('GET', '/api/schedules/' + gid + '/' + year + '/' + sem + '/' + category);
+      editingScheduleInfo = { gid, year, sem, category };
       if (Object.keys(currentSchedule).length) {
-        editingScheduleInfo = { gid, year, sem };
         renderCalendar(gid, year, sem);
       } else {
         document.getElementById('calendarSection').innerHTML =
           '<div class="card"><div class="empty-state"><div class="icon">📅</div><p>Clique em <strong>Gerar Rodízio</strong> para criar a escala.</p></div></div>';
       }
-    } catch(e) {
-      document.getElementById('calendarSection').innerHTML = '';
-    }
+    } catch(e) { document.getElementById('calendarSection').innerHTML = ''; }
   }
 
   async function generateSchedule() {
     const gid = document.getElementById('selectedGroupCalendar').value;
     const year = parseInt(document.getElementById('calendarYear').value);
     const sem = parseInt(document.getElementById('calendarSemester').value);
-    if (!gid) { showToast('Selecione um grupo.', 'error'); return; }
-
+    const category = document.getElementById('calendarCategory').value;
+    if (!gid) { showToast('Selecione uma Casa de Oração.', 'error'); return; }
     const g = groups.find(x => x.id === gid);
-    if (!g) { showToast('Grupo não encontrado.', 'error'); return; }
-
-    let people;
-    try {
-      people = await apiFetch('GET', '/api/groups/' + gid + '/people');
-    } catch(e) { showToast('Erro ao carregar pessoas.', 'error'); return; }
-
-    if (!people.length) { showToast('Cadastre pessoas no grupo primeiro.', 'error'); return; }
-
+    if (!g) return;
+    let all;
+    try { all = await apiFetch('GET', '/api/groups/' + gid + '/people'); }
+    catch(e) { showToast('Erro ao carregar organistas.', 'error'); return; }
+    const people = all.filter(p => (p.categories || []).includes(category));
+    if (!people.length) { showToast('Nenhuma organista cadastrada para ' + CAT_LABELS[category] + '.', 'error'); return; }
     const startMonth = sem === 1 ? 0 : 6;
     const endMonth = sem === 1 ? 5 : 11;
     const queue = people.map(p => p.name);
     let qi = 0;
     const schedule = {};
-
     for (let m = startMonth; m <= endMonth; m++) {
       const daysInMonth = new Date(year, m + 1, 0).getDate();
       for (let d = 1; d <= daysInMonth; d++) {
@@ -910,11 +822,10 @@
         }
       }
     }
-
     try {
-      await apiFetch('POST', '/api/schedules/' + gid + '/' + year + '/' + sem, { schedule });
+      await apiFetch('POST', '/api/schedules/' + gid + '/' + year + '/' + sem + '/' + category, { schedule });
       currentSchedule = schedule;
-      editingScheduleInfo = { gid, year, sem };
+      editingScheduleInfo = { gid, year, sem, category };
       renderCalendar(gid, year, sem);
       showToast('Rodízio gerado com sucesso!', 'success');
     } catch(e) { showToast(e.message, 'error'); }
@@ -926,36 +837,29 @@
     const startMonth = sem === 1 ? 0 : 6;
     const endMonth = sem === 1 ? 5 : 11;
     const today = new Date();
-    let html = '<div class="month-grid">';
-
+    const category = editingScheduleInfo.category;
+    let html = '<div class="card" style="margin-bottom:16px">' +
+      '<div style="font-size:0.88rem;color:#555">📋 <strong>' + CAT_LABELS[category] + '</strong> — ' + g.name + ' — ' + (sem === 1 ? '1º' : '2º') + ' Semestre de ' + year + '</div></div>' +
+      '<div class="month-grid">';
     for (let m = startMonth; m <= endMonth; m++) {
       const daysInMonth = new Date(year, m + 1, 0).getDate();
-      const firstDow = new Date(year, m, 1).getDay();
-      html += '<div class="month-card"><div class="month-header">' + MONTH_NAMES[m] + ' ' + year + '</div>';
-      html += '<table class="month-table"><thead><tr>' + DAY_NAMES.map(d => '<th>' + d + '</th>').join('') + '</tr></thead><tbody>';
-
-      let cells = [];
-      for (let i = 0; i < firstDow; i++) cells.push(null);
-      for (let d = 1; d <= daysInMonth; d++) cells.push(d);
-      while (cells.length % 7 !== 0) cells.push(null);
-
-      for (let row = 0; row < cells.length / 7; row++) {
-        html += '<tr>';
-        for (let col = 0; col < 7; col++) {
-          const day = cells[row * 7 + col];
-          if (!day) { html += '<td class="day-off"></td>'; continue; }
-          const dk = year + '-' + String(m+1).padStart(2,'0') + '-' + String(day).padStart(2,'0');
-          const person = currentSchedule[dk];
-          const isToday = today.getFullYear()===year && today.getMonth()===m && today.getDate()===day;
-          const isScheduled = g.days.includes(new Date(year, m, day).getDay());
-          html += '<td class="' + (isToday ? 'today-cell' : (!isScheduled ? 'day-off' : '')) + '">';
-          html += '<span class="day-number">' + day + '</span>';
-          if (person) {
-            html += '<span class="day-person" onclick="openEditDay(\'' + dk + '\')">' + person + '</span>';
-          }
-          html += '</td>';
-        }
-        html += '</tr>';
+      html += '<div class="month-card">' +
+        '<div class="month-header">📅 ' + MONTH_NAMES[m] + ' ' + year + '</div>' +
+        '<table class="month-table"><thead><tr>' +
+        '<th>DIA</th><th>DIA SEM.</th><th>' + CAT_LABELS[category] + '</th>' +
+        '</tr></thead><tbody>';
+      for (let d = 1; d <= daysInMonth; d++) {
+        const dow = new Date(year, m, d).getDay();
+        if (!g.days.includes(dow)) continue;
+        const dk = year + '-' + String(m+1).padStart(2,'0') + '-' + String(d).padStart(2,'0');
+        const person = currentSchedule[dk];
+        const isToday = today.getFullYear() === year && today.getMonth() === m && today.getDate() === d;
+        html += '<tr' + (isToday ? ' class="today-row"' : '') + '>' +
+          '<td><span class="day-number">' + d + '</span></td>' +
+          '<td><span class="day-dow">' + DAY_NAMES[dow] + '</span></td>' +
+          '<td>' + (person
+            ? '<span class="day-person" onclick="openEditDay(\'' + dk + '\')">' + person + '</span>'
+            : '<span class="day-empty">—</span>') + '</td></tr>';
       }
       html += '</tbody></table></div>';
     }
@@ -964,10 +868,11 @@
   }
 
   async function openEditDay(dateKey) {
-    const { gid, year, sem } = editingScheduleInfo;
-    const people = await apiFetch('GET', '/api/groups/' + gid + '/people');
-    const [y, m, d] = dateKey.split('-');
-    document.getElementById('editDayLabel').textContent = 'Data: ' + d + '/' + m + '/' + y;
+    const { gid, category } = editingScheduleInfo;
+    const allPeople = await apiFetch('GET', '/api/groups/' + gid + '/people');
+    const people = allPeople.filter(p => (p.categories || []).includes(category));
+    const parts = dateKey.split('-');
+    document.getElementById('editDayLabel').textContent = 'Data: ' + parts[2] + '/' + parts[1] + '/' + parts[0] + ' — ' + CAT_LABELS[category];
     const sel = document.getElementById('editDaySelect');
     sel.innerHTML = '';
     const current = currentSchedule[dateKey];
@@ -982,11 +887,11 @@
   }
 
   async function saveEditDay() {
-    const { gid, year, sem } = editingScheduleInfo;
+    const { gid, year, sem, category } = editingScheduleInfo;
     const dateKey = document.getElementById('editDaySelect').dataset.dateKey;
     const personName = document.getElementById('editDaySelect').value;
     try {
-      await apiFetch('PUT', '/api/schedules/' + gid + '/' + year + '/' + sem + '/' + dateKey, { personName });
+      await apiFetch('PUT', '/api/schedules/' + gid + '/' + year + '/' + sem + '/' + category + '/' + dateKey, { personName });
       currentSchedule[dateKey] = personName;
       renderCalendar(gid, year, sem);
       closeModal('modalEditDay');
@@ -994,45 +899,53 @@
     } catch(e) { showToast(e.message, 'error'); }
   }
 
-  function exportCSV() {
+  // ===== EXPORTAR =====
+  function exportXLSX() {
     const { gid, year, sem } = editingScheduleInfo;
-    if (!gid || !Object.keys(currentSchedule).length) { showToast('Gere o rodízio primeiro.', 'error'); return; }
-    const g = groups.find(x => x.id === gid);
-    let csv = 'Data,Dia da Semana,Pessoa\n';
-    Object.entries(currentSchedule).sort().forEach(([dk, person]) => {
-      const date = new Date(dk + 'T12:00:00');
-      const [y, m, d] = dk.split('-');
-      csv += d + '/' + m + '/' + y + ',' + DAY_NAMES[date.getDay()] + ',' + person + '\n';
-    });
-    const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'rodizio_' + (g ? g.name.replace(/\s/g,'_') : 'export') + '_' + year + '_' + sem + 'sem.csv';
-    a.click();
-    URL.revokeObjectURL(url);
-    showToast('CSV exportado!', 'success');
+    if (!gid) { showToast('Gere o rodízio primeiro.', 'error'); return; }
+    showToast('Gerando Excel...', '');
+    fetch('/api/export/xlsx/' + gid + '/' + year + '/' + sem, {
+      headers: { 'Authorization': 'Bearer ' + token }
+    })
+    .then(res => res.blob())
+    .then(blob => {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'rodizio_' + year + '_' + sem + 'sem.xlsx';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('Excel exportado!', 'success');
+    })
+    .catch(() => showToast('Erro ao exportar Excel.', 'error'));
   }
 
-  // ===== MODAIS =====
-  function openModal(id) { document.getElementById(id).classList.add('open'); }
-  function closeModal(id) { document.getElementById(id).classList.remove('open'); }
-  document.querySelectorAll('.modal-overlay').forEach(m => {
-    m.addEventListener('click', e => { if (e.target === m) m.classList.remove('open'); });
-  });
-
-  // ===== TOAST =====
-  let toastTimer;
-  function showToast(msg, type) {
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.className = 'toast show' + (type ? ' ' + type : '');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => { t.className = 'toast'; }, 3000);
+  function exportPDF() {
+    const { gid, year, sem } = editingScheduleInfo;
+    if (!gid) { showToast('Gere o rodízio primeiro.', 'error'); return; }
+    showToast('Gerando PDF...', '');
+    fetch('/api/export/pdf/' + gid + '/' + year + '/' + sem, {
+      headers: { 'Authorization': 'Bearer ' + token }
+    })
+    .then(res => res.blob())
+    .then(blob => {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'rodizio_' + year + '_' + sem + 'sem.pdf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('PDF exportado!', 'success');
+    })
+    .catch(() => showToast('Erro ao exportar PDF.', 'error'));
   }
 
   // ===== INIT =====
-  (async function init() {
+  window.addEventListener('load', async () => {
     if (token) {
       try {
         const data = await apiFetch('GET', '/api/auth/me');
@@ -1043,7 +956,7 @@
         token = null;
       }
     }
-  })();
+  });
 </script>
 </body>
 </html>
